@@ -1,13 +1,14 @@
 import type React from "react";
 import assets from "../assets/assets";
 import { useState } from "react";
+import ThemeToggleBtn from "./ThemeToggleBtn";
 
 const Navbar = ({
   theme,
   setTheme,
 }: {
-  theme: string;
-  setTheme: React.Dispatch<React.SetStateAction<string>>;
+  theme: "light" | "dark";
+  setTheme: React.Dispatch<React.SetStateAction<"light" | "dark">>;
 }) => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   return (
@@ -27,21 +28,38 @@ const Navbar = ({
           className="w-5 absolute right-4 top-4 sm:hidden"
           onClick={() => setSidebarOpen(false)}
         />
-        <a onClick={() => setSidebarOpen(false)} href="#" className="sm:hover:border-b">
+        <a
+          onClick={() => setSidebarOpen(false)}
+          href="#"
+          className="sm:hover:border-b"
+        >
           Home
         </a>
-        <a onClick={() => setSidebarOpen(false)} href="#services" className="sm:hover:border-b">
+        <a
+          onClick={() => setSidebarOpen(false)}
+          href="#services"
+          className="sm:hover:border-b"
+        >
           Services
         </a>
-        <a onClick={() => setSidebarOpen(false)} href="#our-work" className="sm:hover:border-b">
+        <a
+          onClick={() => setSidebarOpen(false)}
+          href="#our-work"
+          className="sm:hover:border-b"
+        >
           Our Work
         </a>
-        <a onClick={() => setSidebarOpen(false)} href="#contact-us" className="sm:hover:border-b">
+        <a
+          onClick={() => setSidebarOpen(false)}
+          href="#contact-us"
+          className="sm:hover:border-b"
+        >
           Contact Us
         </a>
       </div>
 
       <div className="flex items-center gap-2 sm:gap-4">
+        <ThemeToggleBtn theme={theme} setTheme={setTheme} />
         <img
           src={theme === "dark" ? assets.menu_icon_dark : assets.menu_icon}
           alt="theme-chnaging-button"
