@@ -1,19 +1,22 @@
 import React, { useEffect } from "react";
 import assets from "../assets/assets";
-
+type Theme = "light" | "dark";
 const ThemeToggleBtn = ({
   theme,
   setTheme,
 }: {
   theme: string;
-  setTheme: React.Dispatch<React.SetStateAction<string>>;
+  setTheme: React.Dispatch<React.SetStateAction<Theme>>;
 }) => {
   useEffect(() => {
     const prefersDarkMode = window.matchMedia(
-      "(prefers-color-scheme:dark)"
+      "(prefers-color-scheme: dark)"
     ).matches;
-    setTheme(theme || (prefersDarkMode ? "dark" : "light"));
+    if (!theme) {
+      setTheme(prefersDarkMode ? "dark" : "light");
+    }
   });
+
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
@@ -22,6 +25,7 @@ const ThemeToggleBtn = ({
     }
     localStorage.setItem("theme", theme);
   }, [theme]);
+
   return (
     <>
       <button>

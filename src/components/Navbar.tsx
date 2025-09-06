@@ -2,13 +2,13 @@ import type React from "react";
 import assets from "../assets/assets";
 import { useState } from "react";
 import ThemeToggleBtn from "./ThemeToggleBtn";
-
+type Theme = "light" | "dark";
 const Navbar = ({
   theme,
   setTheme,
 }: {
   theme: "light" | "dark";
-  setTheme: React.Dispatch<React.SetStateAction<"light" | "dark">>;
+  setTheme: React.Dispatch<React.SetStateAction<Theme>>;
 }) => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   return (
