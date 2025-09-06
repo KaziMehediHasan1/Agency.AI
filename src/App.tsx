@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import TrustedCompa from "./components/TrustedCompa";
 import Services from "./components/Services";
 import OurWork from "./components/OurWork";
+import Teams from "./components/Teams";
 type Theme = "light" | "dark";
 const App = () => {
   const [theme, setTheme] = useState<Theme>(
@@ -16,6 +17,7 @@ const App = () => {
       <TrustedCompa />
       <Services />
       <OurWork />
+      <Teams />
     </div>
   );
 };
