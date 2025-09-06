@@ -1,4 +1,5 @@
 import assets from "../assets/assets";
+import ServiceCard from "./ServiceCard";
 import Title from "./Title";
 
 const Services = () => {
@@ -40,7 +41,11 @@ const Services = () => {
         desc="From strategy to execution, we craft digital solutions that move your business forward."
       />
 
-
+      <div className="flex flex-col md:grid grid-cols-2">
+        {servicesData.map((service, index) => (
+          <ServiceCard key={index} service={service} index={index}/>
+        ))}
+      </div>
     </div>
   );
 };
