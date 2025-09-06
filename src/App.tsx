@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TrustedCompa from "./components/TrustedCompa";
+import Services from "./components/Services";
 type Theme = "light" | "dark";
 const App = () => {
   const [theme, setTheme] = useState<Theme>(
@@ -12,6 +13,7 @@ const App = () => {
       <Navbar theme={theme} setTheme={setTheme} />
       <Hero />
       <TrustedCompa/>
+      <Services/>
     </div>
   );
 };
